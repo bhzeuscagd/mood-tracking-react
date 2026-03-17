@@ -1,1 +1,61 @@
-@import "tailwindcss";
+@import '@fontsource-variable/reddit-sans';
+@import '@fontsource-variable/reddit-sans/wght-italic.css';
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Reddit Sans Variable', 'Reddit Sans', sans-serif;
+
+  /* Neutral */
+  --color-neutral-900: #1e2143;
+  --color-neutral-600: #4c5779;
+  --color-neutral-300: #8b8ea7;
+  --color-neutral-200: #cbc2d2;
+  --color-neutral-0: #ffffff;
+
+  /* Blue */
+  --color-blue-700: #3a4cd5;
+  --color-blue-600: #4860d6;
+  --color-blue-200: #c7d0f7;
+  --color-blue-100: #e0e6fa;
+
+  /* Red */
+  --color-red-700: #e50012;
+
+  /* Other colors */
+  --color-red-300: #ff9898;
+  --color-indigo-200: #b8abff;
+  --color-blue-300: #89c4ff;
+  --color-green-300: #88e58b;
+  --color-amber-300: #f1d47c;
+
+  /* Gradient */
+  --gradient-light: linear-gradient(150deg, #f9f2ff 72.06%, #dde0ff 100%);
+
+  /* Spacing */
+  --spacing-0: 0px;
+  --spacing-025: 2px;
+  --spacing-050: 4px;
+  --spacing-075: 6px;
+  --spacing-100: 8px;
+  --spacing-125: 10px;
+  --spacing-150: 12px;
+  --spacing-200: 16px;
+  --spacing-250: 20px;
+  --spacing-300: 24px;
+  --spacing-400: 32px;
+  --spacing-500: 40px;
+  --spacing-600: 48px;
+  --spacing-800: 64px;
+  --spacing-1000: 80px;
+}
+
+@layer base {
+  html {
+    @apply font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply min-h-dvh leading-normal;
+  }
+}
