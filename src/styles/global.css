@@ -3,7 +3,7 @@
 @import 'tailwindcss';
 
 @theme {
-  --font-sans: 'Reddit Sans Variable', 'Reddit Sans', sans-serif;
+  --font-sans: 'Reddit Sans', 'Reddit Sans Variable', sans-serif;
 
   /* Neutral */
   --color-neutral-900: #1e2143;
