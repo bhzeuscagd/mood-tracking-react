@@ -28,6 +28,8 @@ export default function Icons({
 
   const isDecorative = !label; // si no hay label, es decorativo
 
+  const iconId = name.startsWith("icon-") ? name : `icon-${name}`;
+
   return (
     <svg
       width={size}
@@ -35,7 +37,7 @@ export default function Icons({
       // 1. Usamos className con ` ` para combinar las clases
       className={`
         icon 
-        icon-${name} 
+        ${iconId} 
         inline-block 
         align-middle 
         shrink-0 
@@ -53,7 +55,7 @@ export default function Icons({
       {...rest}
     >
       {}
-      <use href={`/atlas.svg#icon-${name}`} />
+      <use href={`/atlas.svg#${iconId}`} />
     </svg>
   );
 }
