@@ -15,7 +15,7 @@ const TextStyle =
 
 export default function Popover({
   textMood = "Very Happy",
-  IconMood = "happy",
+  IconMood = "icon-very-happy-color",
   textSleep = "9+ hours",
   textReflections = "Slept well and woke up ready to tackle new challenges.",
   textTags = ["Joyful", "Excited", "Grateful"],
@@ -35,7 +35,8 @@ export default function Popover({
     >
       <h2 className={TitleStyle}>Mood</h2>
       <span className="flex items-center gap-125 text-neutral-900 text-md font-normal">
-        <Icons name={IconMood} /> <p className={TextStyle}>{textMood}</p>
+        <Icons name={IconMood} className="stroke-none" />{" "}
+        <p className={TextStyle}>{textMood}</p>
       </span>
 
       <h2 className={TitleStyle}>Sleep</h2>

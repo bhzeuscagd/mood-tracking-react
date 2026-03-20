@@ -2,9 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import Navbar from "../components/Global/navbar.tsx";
 import DropDownSetting from "../components/Setting/DropDownSetting.tsx";
+import Popover from "../components/Global/popover";
+import ProfilePopover from "../components/Profile/profile-popover.tsx";
+import LogMoodFather from "../components/Mood/LogMoodFather.tsx";
 ---
 
 <Layout>
   <Navbar />
-  <DropDownSetting />
+  <DropDownSetting client:load />
+  <Popover />
+  <ProfilePopover client:load />
+  <LogMoodFather client:load />
 </Layout>

@@ -29,7 +29,11 @@
   --color-amber-300: #f1d47c;
 
   /* Gradient */
-  --gradient-light: linear-gradient(150deg, #f9f2ff 72.06%, #dde0ff 100%);
+  --background-image-gradient-light: linear-gradient(
+    150deg,
+    #f9f2ff 72.06%,
+    #dde0ff 100%
+  );
 
   /* Spacing */
   --spacing-0: 0px;
