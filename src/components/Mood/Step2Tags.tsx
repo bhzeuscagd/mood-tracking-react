@@ -1,43 +1,32 @@
-import { useState } from "react"; // Importamos useState para manejar la lista de etiquetas seleccionadas
 import Icons from "../Icons"; // Importamos el componente de iconos para el checkmark
 
-// Array de strings con todas las opciones de etiquetas disponibles
+// Array de strings con todas las opciones de etiquetas disponibles para el usuario
 const Tags = [
-  "Joyful",
-  "Down",
-  "Anxious",
-  "Calm",
-  "Excited",
-  "Frustrated",
-  "Lonely",
-  "Grateful",
-  "Overwhelmed",
-  "Motivated",
-  "Irritable",
-  "Peaceful",
-  "Tired",
-  "Hopeful",
-  "Confident",
-  "Stressed",
-  "Content",
-  "Disappointed",
-  "Optimistic",
-  "Restless",
+  "Joyful", "Down", "Anxious", "Calm", "Excited",
+  "Frustrated", "Lonely", "Grateful", "Overwhelmed", "Motivated",
+  "Irritable", "Peaceful", "Tired", "Hopeful", "Confident",
+  "Stressed", "Content", "Disappointed", "Optimistic", "Restless",
 ];
 
-export default function Step2Tags() {
-  // Estado que almacena un array de strings con las etiquetas elegidas por el usuario
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+/**
+ * Componente del Paso 2: Selección de Etiquetas
+ * Permite al usuario elegir hasta 3 etiquetas que describan su sentimiento.
+ */
+export default function Step2Tags({ formData, setFormData }: any) {
+  // Obtenemos las etiquetas seleccionadas directamente del estado compartido 'formData'
+  const selectedTags = formData.tags;
 
-  // Función para marcar o desmarcar una etiqueta
+  // Función para marcar o desmarcar una etiqueta en el estado global
   const toggleTag = (tag: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag)
-        ? prev.filter((t) => t !== tag) // Si ya estaba seleccionada, la eliminamos del array
-        : prev.length < 3
-          ? [...prev, tag] // Si no estaba y hay menos de 3 elegidas, la añadimos
-          : prev, // Si ya hay 3 seleccionadas, no permitimos añadir más
-    );
+    // Usamos la versión de función de setFormData para asegurar que trabajamos con el estado más reciente (prev)
+    setFormData((prev: any) => ({
+      ...prev, // Mantenemos el resto de campos (mood, info, hours) intactos
+      tags: prev.tags.includes(tag) // Modificamos el array de 'tags'
+        ? prev.tags.filter((t: string) => t !== tag) // Si ya estaba, lo quitamos
+        : prev.tags.length < 3
+          ? [...prev.tags, tag] // Si hay espacio (menos de 3), lo añadimos
+          : prev.tags, // Si ya hay 3 elegidas, no hacemos nada
+    }));
   };
 
   return (
@@ -52,39 +41,39 @@ export default function Step2Tags() {
         </p>
       </div>
 
-      {/* Contenedor de etiquetas con wrap para que bajen de línea automágicamente */}
+      {/* Contenedor de etiquetas con flex-wrap para que se ajusten al ancho disponible */}
       <div className="flex flex-wrap gap-2.5">
         {Tags.map((tag) => {
-          // Comprobamos si esta etiqueta específica está en nuestro estado de seleccionadas
+          // Comprobamos si esta etiqueta específica aparece en el array global de 'tags'
           const isSelected = selectedTags.includes(tag);
 
           return (
             <button
               key={tag}
               onClick={() => toggleTag(tag)}
-              // Clases dinámicas: cambian el borde y el fondo si la etiqueta está seleccionada
+              // Clases dinámicas: Si está seleccionado aplicamos borde azul y sombra
               className={`
                 flex items-center gap-2 px-3 py-1.5 rounded-lg border-2 text-sm transition-all duration-200
                 ${
                   isSelected
-                    ? "bg-white border-blue-600 text-blue-600 font-medium shadow-sm" // Estilo seleccionado
-                    : "bg-white/50 border-blue-100 text-neutral-900 hover:bg-white" // Estilo no seleccionado
+                    ? "bg-white border-blue-600 text-blue-600 font-medium shadow-sm" // Seleccionado
+                    : "bg-white/50 border-blue-100 text-neutral-900 hover:bg-white" // No seleccionado
                 }
               `}
             >
-              {/* Cuadro visual de checkbox */}
+              {/* Cuadrado visual que hace de "checkbox" personalizada */}
               <div
                 className={`
                 w-4 h-4 rounded-sm border flex items-center justify-center transition-colors
                 ${isSelected ? "bg-blue-600 border-blue-600" : "border-neutral-200 bg-white"}
               `}
               >
-                {/* Si la etiqueta está seleccionada, pintamos el icono de check blanco */}
+                {/* Si está seleccionado, mostramos el icono de check de nuestro atlas */}
                 {isSelected && (
                   <Icons name="check" size={10} className="text-neutral-0" />
                 )}
               </div>
-              {/* Texto de la etiqueta (ej: "Joyful") */}
+              {/* Texto de la etiqueta */}
               {tag}
             </button>
           );
