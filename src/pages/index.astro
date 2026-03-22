@@ -4,13 +4,10 @@ import Navbar from "../components/Global/navbar.tsx";
 import DropDownSetting from "../components/Setting/DropDownSetting.tsx";
 import Popover from "../components/Global/popover";
 import ProfilePopover from "../components/Profile/profile-popover.tsx";
-import LogMoodFather from "../components/Mood/LogMoodFather.tsx";
+import LogMoodFather from "../components/Mood/LogMoodContainer.tsx";
+import Authentication from "../components/Auth/Authentication.tsx";
 ---
 
 <Layout>
-  <Navbar />
-  <DropDownSetting client:load />
-  <Popover />
-  <ProfilePopover client:load />
-  <LogMoodFather client:load />
+  <Authentication client:load />
 </Layout>

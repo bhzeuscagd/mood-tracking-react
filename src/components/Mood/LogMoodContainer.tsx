@@ -1,9 +1,9 @@
 import { useState } from "react"; // Hook para manejar el estado del formulario y la navegación entre pasos
 import Icons from "../Icons"; // Componente para mostrar iconos (aunque aquí no se usa directamente, se mantiene para consistencia)
-import Step1Mood from "./Step1Mood"; // Componente del Paso 1: Selección de humor
-import Step2Tags from "./Step2Tags"; // Componente del Paso 2: Selección de etiquetas (sentimientos)
-import Step3Modal from "./Step3Modal"; // Componente del Paso 3: Texto libre/diario
-import Step4Hours from "./Step4Hours"; // Componente del Paso 4: Horas de sueño
+import Step1Mood from "./Components/Step1Mood"; // Componente del Paso 1: Selección de humor
+import Step2Tags from "./Components/Step2Tags"; // Componente del Paso 2: Selección de etiquetas (sentimientos)
+import Step3Modal from "./Components/Step3Modal"; // Componente del Paso 3: Texto libre/diario
+import Step4Hours from "./Components/Step4Hours"; // Componente del Paso 4: Horas de sueño
 
 export default function LogMoodFather() {
   // Estado para controlar en qué paso del formulario se encuentra el usuario (1 a 4)
@@ -12,10 +12,10 @@ export default function LogMoodFather() {
   // Estado centralizado que guarda toda la información del formulario
   // Se pasa a los hijos para que estos puedan leer y actualizar los datos
   const [formData, setFormData] = useState({
-    mood: "",      // ID del humor seleccionado (Paso 1)
-    tags: [],      // Array de etiquetas seleccionadas (Paso 2)
-    info: "",      // Texto descriptivo del día (Paso 3)
-    hours: "",     // ID del rango de horas de sueño (Paso 4)
+    mood: "", // ID del humor seleccionado (Paso 1)
+    tags: [], // Array de etiquetas seleccionadas (Paso 2)
+    info: "", // Texto descriptivo del día (Paso 3)
+    hours: "", // ID del rango de horas de sueño (Paso 4)
   });
 
   // Función que se ejecuta al finalizar todos los pasos (en el paso 4)
@@ -40,10 +40,10 @@ export default function LogMoodFather() {
   const isStepValid = () => {
     // Definimos las reglas de validación para cada paso
     const stepValidations: Record<number, boolean> = {
-      1: formData.mood !== "",           // Paso 1: Debe haber un humor elegido
-      2: formData.tags.length > 0,       // Paso 2: Al menos una etiqueta elegida
-      3: formData.info.trim() !== "",    // Paso 3: El texto no debe estar vacío
-      4: formData.hours !== "",          // Paso 4: Debe haber un rango de horas elegido
+      1: formData.mood !== "", // Paso 1: Debe haber un humor elegido
+      2: formData.tags.length > 0, // Paso 2: Al menos una etiqueta elegida
+      3: formData.info.trim() !== "", // Paso 3: El texto no debe estar vacío
+      4: formData.hours !== "", // Paso 4: Debe haber un rango de horas elegido
     };
 
     // Retorna el resultado de la validación para el paso actual
@@ -51,7 +51,13 @@ export default function LogMoodFather() {
   };
 
   return (
-    <div className="flex flex-col w-[335px] h-auto px-5 py-7 bg-gradient-light gap-6 rounded-2xl shadow-lg">
+    <div className="relative flex flex-col w-[335px] h-auto px-5 py-7 bg-gradient-light gap-6 rounded-2xl shadow-lg">
+      <Icons
+        name="close"
+        size={14}
+        strokeWidth={2}
+        className="absolute top-2 right-2 text-neutral-500 cursor-pointer"
+      />
       <h1 className="font-bold text-4xl text-neutral-900 tracking-[-0.3px]">
         Log your mood
       </h1>

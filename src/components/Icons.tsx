@@ -32,8 +32,6 @@ export default function Icons({
 
   return (
     <svg
-      width={size}
-      height={size}
       // 1. Usamos className con ` ` para combinar las clases
       className={`
         icon 

@@ -1,11 +1,27 @@
-import Icons from "../Icons"; // Importamos el componente de iconos para el checkmark
+import Icons from "../../Icons"; // Importamos el componente de iconos para el checkmark
 
 // Array de strings con todas las opciones de etiquetas disponibles para el usuario
 const Tags = [
-  "Joyful", "Down", "Anxious", "Calm", "Excited",
-  "Frustrated", "Lonely", "Grateful", "Overwhelmed", "Motivated",
-  "Irritable", "Peaceful", "Tired", "Hopeful", "Confident",
-  "Stressed", "Content", "Disappointed", "Optimistic", "Restless",
+  "Joyful",
+  "Down",
+  "Anxious",
+  "Calm",
+  "Excited",
+  "Frustrated",
+  "Lonely",
+  "Grateful",
+  "Overwhelmed",
+  "Motivated",
+  "Irritable",
+  "Peaceful",
+  "Tired",
+  "Hopeful",
+  "Confident",
+  "Stressed",
+  "Content",
+  "Disappointed",
+  "Optimistic",
+  "Restless",
 ];
 
 /**

@@ -1,4 +1,4 @@
-import Icons from "../Icons"; // Importamos el componente Icons para mostrar los emojis/iconos
+import Icons from "../../Icons"; // Importamos el componente Icons para mostrar los emojis/iconos
 
 // Definimos la lista de humores con sus propiedades: ID, nombre visible e icono correspondiente
 const moodOptions = [
@@ -25,7 +25,7 @@ export default function Step1Mood({ formData, setFormData }: any) {
         {moodOptions.map((mood) => {
           // Comprobamos si este humor es el que está guardado en el estado global (formData)
           const isSelected = formData.mood === mood.id;
-          
+
           return (
             <label
               key={mood.id}
