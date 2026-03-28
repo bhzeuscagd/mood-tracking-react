@@ -2,11 +2,11 @@ import Icons from "../../Icons"; // Importamos el componente Icons para mostrar 
 
 // Definimos la lista de humores con sus propiedades: ID, nombre visible e icono correspondiente
 const moodOptions = [
-  { id: "very-happy", label: "Very Happy", Icon: "icon-very-happy-color" },
-  { id: "happy", label: "Happy", Icon: "icon-happy-color" },
-  { id: "neutral", label: "Neutral", Icon: "icon-neutral-color" },
-  { id: "sad", label: "Sad", Icon: "icon-sad-color" },
-  { id: "very-sad", label: "Very Sad", Icon: "icon-very-sad-color" },
+  { id: "very-happy", label: "Very Happy", Icon: "very-happy-color" },
+  { id: "happy", label: "Happy", Icon: "happy-color" },
+  { id: "neutral", label: "Neutral", Icon: "neutral-color" },
+  { id: "sad", label: "Sad", Icon: "sad-color" },
+  { id: "very-sad", label: "Very Sad", Icon: "very-sad-color" },
 ];
 
 /**

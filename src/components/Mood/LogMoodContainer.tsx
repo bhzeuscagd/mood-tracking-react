@@ -5,7 +5,11 @@ import Step2Tags from "./Components/Step2Tags"; // Componente del Paso 2: Selecc
 import Step3Modal from "./Components/Step3Modal"; // Componente del Paso 3: Texto libre/diario
 import Step4Hours from "./Components/Step4Hours"; // Componente del Paso 4: Horas de sueño
 
-export default function LogMoodFather() {
+interface LogMoodFatherProps {
+  onComplete?: (data: any) => void;
+}
+
+export default function LogMoodFather({ onComplete }: LogMoodFatherProps) {
   // Estado para controlar en qué paso del formulario se encuentra el usuario (1 a 4)
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -21,6 +25,7 @@ export default function LogMoodFather() {
   // Función que se ejecuta al finalizar todos los pasos (en el paso 4)
   const submitData = () => {
     console.log("Datos finales del formulario:", formData);
+    if (onComplete) onComplete(formData);
   };
 
   // Función para calcular la clase CSS de las barras de progreso superiores

@@ -15,21 +15,21 @@ const TextStyle =
 
 export default function Popover({
   textMood = "Very Happy",
-  IconMood = "icon-very-happy-color",
+  IconMood = "very-happy-color",
   textSleep = "9+ hours",
   textReflections = "Slept well and woke up ready to tackle new challenges.",
   textTags = ["Joyful", "Excited", "Grateful"],
 }: PopoverProps) {
   return (
     <div
-      className="relative flex flex-col max-w-[215px] w-max p-(--spacing-150) items-start gap-(--spacing-150) rounded-(--spacing-125) border border-(--color-blue-100) bg-(--color-neutral-0)
-    before:content-[''] before:absolute before:top-[calc(var(--spacing-10)+1px)] before:left-full
+      className="relative flex flex-col max-w-[215px] w-max p-150 items-start gap-150 rounded-125 border-blue-100 bg-neutral-0
+    before:content-[''] before:absolute before:top-[calc(10px+1px)] before:left-full
     before:w-0 before:h-0
-    before:border-l-[10px] before:border-t-[10px] before:border-b-[10px]
+    before:border-l-10 before:border-t-10 before:border-b-10
     before:border-t-transparent before:border-b-transparent before:border-l-blue-100
-    after:content-[''] after:absolute after:top-[calc(var(--spacing-10)+1px)] after:left-full
+    after:content-[''] after:absolute after:top-[calc(10px+1px)] after:left-full
     after:w-0 after:h-0
-    after:border-l-[9px] after:border-t-[9px] after:border-b-[9px]
+    after:border-l-9 after:border-t-9 after:border-b-9
     after:border-t-transparent after:border-b-transparent after:border-l-white
     "
     >

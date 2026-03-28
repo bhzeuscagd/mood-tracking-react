@@ -27,7 +27,7 @@ export default function Register({ onSwitch }: any) {
 
         <p className={placeholderDescription + " text-center"}>
           Haven't got an account?{" "}
-          <button onClick={onSwitch} className="text-blue-600">
+          <button onClick={onSwitch} className="text-blue-600 cursor-pointer">
             Sign up.
           </button>
         </p>

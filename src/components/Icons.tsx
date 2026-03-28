@@ -8,6 +8,8 @@ interface IconsProps {
   strokeWidth?: number;
   fill?: string;
   stroke?: string;
+  width?: number | string;
+  height?: number | string;
 }
 
 // como es react debemos exportar la funcion con default
@@ -21,7 +23,7 @@ export default function Icons({
   label = "",
   strokeWidth,
   fill = "",
-  stroke = "",
+  stroke = "none",
   ...rest
 }: IconsProps) {
   //hay que poner los dos puntos y el nombre de la interface en tsx
@@ -39,14 +41,16 @@ export default function Icons({
         inline-block 
         align-middle 
         shrink-0 
-        fill-current 
-        stroke-current 
+        ${fill === "" ? "fill-current" : ""}
+        ${stroke === "currentColor" ? "stroke-current" : ""}
         ${className}
       `}
       // 2. Usamos la lógica de accesibilidad simplificada
       strokeWidth={strokeWidth}
       fill={fill}
       stroke={stroke}
+      width={size}
+      height={size}
       aria-hidden={isDecorative ? "true" : undefined}
       aria-label={label || undefined}
       role={label ? "img" : undefined}
