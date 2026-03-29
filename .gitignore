@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 # local notes
 notas/
+.vercel
+skills-lock.json
