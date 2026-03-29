@@ -110,7 +110,7 @@ export default function HomeDasboard() {
   return (
     <div className="flex flex-col min-h-screen bg-[#f0efff]">
       <Navbar />
-      <main className="flex-1 p-4 md:p-8 flex flex-col items-center gap-8">
+      <div className="flex-1 p-4 md:p-8 flex flex-col items-center gap-8">
         {loadingDb ? (
           <div className="flex flex-1 w-full justify-center items-center">
             <span className="text-xl text-neutral-500 font-medium">Loading your dashboard...</span>
@@ -158,7 +158,7 @@ export default function HomeDasboard() {
         ) : null}
           </>
         )}
-      </main>
+      </div>
     </div>
   );
 }
