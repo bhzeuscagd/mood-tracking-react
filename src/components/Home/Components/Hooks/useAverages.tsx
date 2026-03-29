@@ -12,26 +12,26 @@ const MOOD_DICTIONARY: Record<number, string> = {
 
 const SLEEP_DICTIONARY: Record<number, string> = {
   1: "0-2 hours",
-  3.5: "3-4 hours",
-  5.5: "5-6 hours",
-  7.5: "7-8 hours",
-  9: "9+ hours",
+  2: "3-4 hours",
+  3: "5-6 hours",
+  4: "7-8 hours",
+  5: "9+ hours",
 };
 
 export function useAverages(dataList: number[], type: "mood" | "sleep") {
   const result = useMemo(() => {
 
-    if (!dataList || dataList.length < 5) {
+    const cleaned = dataList.filter((x): x is number => typeof x === "number" && !isNaN(x));
+
+    if (cleaned.length < 5) {
       return { hasEnoughData: false };
     }
 
-
-    const last5 = dataList.slice(-5);
-    const previous5 = dataList.slice(-10, -5);
-
+    const last5 = cleaned.slice(-5);
+    const previous5 = cleaned.slice(-10, -5);
 
     const sumLast5 = last5.reduce((a, b) => a + b, 0);
-    const avgLast5 = Math.round(sumLast5 / 5);
+    const avgLast5 = last5.length > 0 ? Math.round(sumLast5 / last5.length) : 0;
 
 
     let trendIcon = "same";
