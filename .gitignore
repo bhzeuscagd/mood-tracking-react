@@ -27,3 +27,5 @@ pnpm-debug.log*
 notas/
 .vercel
 skills-lock.json
+.agents/
+.vscode/
