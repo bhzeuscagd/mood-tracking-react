@@ -2,7 +2,7 @@
 @import '@fontsource-variable/reddit-sans/wght-italic.css';
 @import 'tailwindcss';
 
-@theme {
+:root {
   --font-sans: 'Reddit Sans', 'Reddit Sans Variable', sans-serif;
 
   /* Neutral */
