@@ -41,8 +41,9 @@ export default function Login({ onSwitch, onLoginSuccess }: any) {
       </p>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-full">
-        <p className={placeholderName}>Email address</p>
+        <label htmlFor="login-email" className={placeholderName}>Email address</label>
         <input
+          id="login-email"
           type="email"
           placeholder="name@mail.com"
           className={placeholderInput}
@@ -50,8 +51,9 @@ export default function Login({ onSwitch, onLoginSuccess }: any) {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-        <p className={placeholderName}>Password</p>
+        <label htmlFor="login-password" className={placeholderName}>Password</label>
         <input 
+          id="login-password"
           type="password" 
           className={`${placeholderInput} flex-1 ${errorMsg ? "border-red-500! bg-red-50!" : ""}`} 
           value={password}
@@ -67,9 +69,9 @@ export default function Login({ onSwitch, onLoginSuccess }: any) {
 
         <p className={placeholderDescription + " text-center"}>
           Haven't got an account?{" "}
-          <button type="button" onClick={onSwitch} className="text-blue-600 cursor-pointer font-medium hover:underline">
+          <span onClick={onSwitch} role="button" tabIndex={0} onKeyDown={(e) => e.key === "Enter" && onSwitch()} className="text-blue-600 cursor-pointer font-medium hover:underline">
             Sign up.
-          </button>
+          </span>
         </p>
       </form>
     </div>
