@@ -94,8 +94,9 @@ export default function DropDownSetting({
         <p className={descriptiontext}>{description}</p>
       </div>
       <form onSubmit={HandleSubmit} className="flex flex-col gap-2 w-full">
-        <p className={titletext}>Name</p>
+        <label htmlFor="settings-name" className={titletext}>Name</label>
         <input
+          id="settings-name"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
