@@ -31,7 +31,7 @@ export default function Authentication() {
   };
 
   return (
-    <section className="flex-1 w-full py-10 px-4 flex flex-col items-center gap-8">
+    <div className="flex-1 w-full py-10 px-4 flex flex-col items-center gap-8">
       <Icons name="logo" className="h-10 w-[180px]" strokeWidth={0} />
       {CurrentPage === "login" ? (
         <Login onSwitch={handleSwitchToRegister} onLoginSuccess={handleLoginSuccess} />
@@ -60,6 +60,6 @@ export default function Authentication() {
         </div>
       ) : null}
       {CurrentPage === "onboarding" ? <OnBoarding /> : null}
-    </section>
+    </div>
   );
 }
