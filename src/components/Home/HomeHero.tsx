@@ -18,9 +18,10 @@ const getOrdinalSuffix = (day: number) => {
 
 interface HomeHeroProps {
   onLogClick?: () => void;
+  hideButton?: boolean;
 }
 
-export default function HomeHero({ onLogClick }: HomeHeroProps) {
+export default function HomeHero({ onLogClick, hideButton }: HomeHeroProps) {
   const [name, setName] = useState("Luisa");
 
   // 2. Sacamos las piezas
@@ -33,21 +34,28 @@ export default function HomeHero({ onLogClick }: HomeHeroProps) {
   const fulldate = `${weekday}, ${month} ${day}${getOrdinalSuffix(day)}, ${year}`;
 
   useEffect(() => {
-    const SavedName = localStorage.getItem("Username");
-    if (SavedName) {
-      setName(SavedName);
-    }
-  }, []); // hazlo solo al cargar []
+    const loadName = () => {
+      const SavedName = localStorage.getItem("Username");
+      if (SavedName) {
+        setName(SavedName);
+      }
+    };
+    
+    loadName();
+    window.addEventListener("profileUpdated", loadName);
+    
+    return () => window.removeEventListener("profileUpdated", loadName);
+  }, []);
 
   return (
     <section>
       <div className="flex flex-col gap-12 pt-8 px-4 text-center">
-        <h1 className="text-blue-600 font-bold text-2xl">Hello, {name}!</h1>
+        <h1 className="text-blue-600 font-bold text-2xl">Hello, {name.split(" ")[0]}!</h1>
         <h2 className="text-neutral-900 font-bold text-5xl">
           How are you feeling today?
         </h2>
         <p className="text-neutral-600 text-lg">{fulldate}</p>
-        <Button text="Log today's mood" onClick={onLogClick} />
+        {!hideButton ? <Button text="Log today's mood" onClick={onLogClick} /> : null}
       </div>
     </section>
   );

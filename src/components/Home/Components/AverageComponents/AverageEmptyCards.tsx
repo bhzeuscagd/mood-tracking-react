@@ -25,9 +25,7 @@ export default function AverageCards({
         <p className="text-sm text-neutral-600 font-normal">{Description}</p>
         <Icons
           name="bg-card-decoration"
-          className="absolute right-0 -top-px opacity-100"
-          width={61}
-          height={150}
+          className="absolute right-0 top-0 h-full w-auto opacity-100 object-cover"
           strokeWidth={0}
         />
       </div>

@@ -84,10 +84,9 @@ export default function Step2Tags({ formData, setFormData }: any) {
                 ${isSelected ? "bg-blue-600 border-blue-600" : "border-neutral-200 bg-white"}
               `}
               >
-                {/* Si está seleccionado, mostramos el icono de check de nuestro atlas */}
-                {isSelected && (
+                {isSelected ? (
                   <Icons name="check" size={10} className="text-neutral-0" />
-                )}
+                ) : null}
               </div>
               {/* Texto de la etiqueta */}
               {tag}

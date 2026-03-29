@@ -9,6 +9,7 @@ import Authentication from "../components/Auth/Authentication.tsx";
 ---
 
 <Layout>
-  <Navbar />
-  <Authentication client:load />
+  <div class="flex flex-col min-h-screen bg-gradient-light w-full">
+    <Authentication client:load />
+  </div>
 </Layout>

@@ -7,7 +7,7 @@ export default function OnBoarding() {
         title="Personalice your Experience"
         description="Add your name and a profile picture to make Mood yours."
         buttonText="Start tracking"
-        InitialName="Jane Appleseed"
+        onSubmitSuccess={() => window.location.href = "/home"}
       />
     </div>
   );

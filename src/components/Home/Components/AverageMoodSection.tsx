@@ -7,6 +7,14 @@ interface AverageMoodSectionProps {
   sleepHoursText?: string;
 }
 
+const MOOD_NAME_MAP: Record<number, string> = {
+  [-2]: "Very Sad",
+  [-1]: "Sad",
+  [0]: "Neutral",
+  [1]: "Happy",
+  [2]: "Very Happy",
+};
+
 export default function AverageMoodSection({ moodScore, sleepHoursText }: AverageMoodSectionProps) {
   if (moodScore === undefined) {
     return (
@@ -25,15 +33,7 @@ export default function AverageMoodSection({ moodScore, sleepHoursText }: Averag
     );
   }
 
-  const moodNameMap: Record<number, string> = {
-    [-2]: "Very Sad",
-    [-1]: "Sad",
-    [0]: "Neutral",
-    [1]: "Happy",
-    [2]: "Very Happy",
-  };
-
-  const name = moodNameMap[moodScore] || "Neutral";
+  const name = MOOD_NAME_MAP[moodScore] || "Neutral";
   const config = MOOD_CONFIG[moodScore] || MOOD_CONFIG[0];
 
   return (

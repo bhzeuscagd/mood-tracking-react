@@ -1,6 +1,6 @@
-// chartUtils.ts
 
-// 1. Diccionario de colores e iconos
+
+
 export const MOOD_CONFIG: Record<number, { color: string; icon: string }> = {
   [-2]: { color: "bg-red-300", icon: "very-sad-white" }, 
   [-1]: { color: "bg-indigo-200", icon: "sad-white" },           
@@ -9,7 +9,7 @@ export const MOOD_CONFIG: Record<number, { color: string; icon: string }> = {
   [2]:  { color: "bg-amber-300", icon: "very-happy-white" },    
 };
 
-// 2. Función para calcular la altura
+
 export const getMoodHeightPercent = (score: number): string => {
   const map: Record<number, string> = {
     [-2]: "35%", 
@@ -21,7 +21,7 @@ export const getMoodHeightPercent = (score: number): string => {
   return map[score] || "10%";
 };
 
-// 3. Frases motivacionales asociadas al humor
+
 export const MOOD_QUOTES: Record<number, string> = {
   [-2]: "You are stronger than you think; the storm will pass.",
   [-1]: "Every day is a fresh start. Take it easy today.",
