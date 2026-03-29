@@ -41,8 +41,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [GitHub Repository](https://github.com/bhzeuscagd/mood-tracking-react)
+- Live Site URL: [moon-tracking-react.vercel.app](https://moon-tracking-react.vercel.app)
 
 ---
 
